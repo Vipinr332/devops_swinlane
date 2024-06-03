@@ -1,0 +1,49 @@
+test> show dbs
+admin    40.00 KiB
+config   60.00 KiB
+local    72.00 KiB
+test    108.00 KiB
+vipin   172.00 KiB
+test> use vipin
+switched to db vipin
+vipin> show collections
+articles
+sessions
+users
+vipin> db.users.find()
+[
+  {
+    _id: ObjectId('665d89de8bcc790031cf9ddd'),
+    name: 'vipin',
+    email: 'vipin@swimlane',
+    username: 'R',
+    provider: 'local',
+    hashed_password: '36c4b574081482cf12f576685946abe37fd80058',
+    salt: '87475687489',
+    authToken: '',
+    __v: 0
+  }
+]
+vipin> db.sessions.find()
+[
+  {
+    _id: 'tv505BzAgMSF0pie5jvnzser4Ads2cQm',
+    expires: ISODate('2024-06-17T09:17:29.129Z'),
+    session: '{"cookie":{"originalMaxAge":null,"expires":null,"httpOnly":true,"path":"/"},"flash":{},"csrfSecret":"c68hHNJ8smNw3pJf5VBc6vqo","returnTo":"/articles/new","passport":{"user":"665d89de8bcc790031cf9ddd"}}'
+  }
+]
+vipin> db.articles.find()
+[
+  {
+    _id: ObjectId('665d89fa8bcc790031cf9ddf'),
+    image: { files: [] },
+    title: 'vipin',
+    body: 'Hello Vipin',
+    tags: [ 'Devops' ],
+    comments: [],
+    createdAt: ISODate('2024-06-03T09:16:42.631Z'),
+    user: ObjectId('665d89de8bcc790031cf9ddd'),
+    __v: 0
+  }
+]
+vipin>
