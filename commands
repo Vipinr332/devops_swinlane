@@ -1,0 +1,4 @@
+# To start the mongodb and node js need to execute the below command using docker environment
+docker compose up -d
+
+  
