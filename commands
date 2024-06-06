@@ -1,3 +1,12 @@
 # To start the mongodb and node js need to execute the below command using docker environment
 docker compose up -d
 # To execute kops-install.sh file the prerequisite is to run in sandbox/jump box to manage the EKS cluster
+
+#Kubernetes deployment steps
+#helm install 
+helm install ui
+helm install db
+# UI deployment
+helm install ui ./ui -f ./ui/values.yaml
+# DB deployment
+helm install db ./ui -f ./db/values.yaml
