@@ -10,3 +10,18 @@ helm install db
 helm install ui ./ui -f ./ui/values.yaml
 # DB deployment
 helm install db ./ui -f ./db/values.yaml
+
+
+#output
+$ helm install ui ./app -f app/values.yaml
+NAME: ui
+LAST DEPLOYED: Wed Jun  5 15:44:12 2024
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get the application URL by running these commands:
+     NOTE: It may take a few minutes for the LoadBalancer IP to be available.
+           You can watch the status of by running 'kubectl get --namespace default svc -w ui-app'
+  export SERVICE_IP=$(kubectl get svc --namespace default ui-app --template "{{ range (index .status.loadBalancer.ingress 0) }}{{.}}{{ end }}")
+  echo http://$SERVICE_IP:3000
